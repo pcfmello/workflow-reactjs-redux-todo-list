@@ -1,8 +1,8 @@
-"use strict";
+'use strict'
 
-import { ADD_TODO, TOGGLE_TODO } from "./actions";
+import { ADD_TODO, TOGGLE_TODO } from './actions'
 
-const initialState = [];
+export const initialState = []
 
 const todos = (state = initialState, action) => {
   switch (action.type) {
@@ -11,15 +11,22 @@ const todos = (state = initialState, action) => {
         id: action.payload.id,
         text: action.payload.text,
         completed: false
-      });
+      })
 
     case TOGGLE_TODO:
-      return state.map(todo => ({
-        ...todo,
-        completed: todo.id === action.payload ? !todo.completed : todo.completed
-      }));
-  }
-  return state;
-};
+      return state.map((todo) => {
+        if (todo.id !== action.payload.id) {
+          return todo
+        }
 
-export default todos;
+        return {
+          ...todo,
+          completed: !todo.completed
+        }
+      })
+  }
+
+  return state
+}
+
+export default todos
