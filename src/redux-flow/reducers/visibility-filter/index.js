@@ -1,9 +1,19 @@
 "use strict";
 
-export const initialState = "SHOW_ALL";
+import { SHOW_ALL, SET_VISIBILITY_FILTER } from "./actions";
 
-const visibilityFilter = () => {
-  return "SHOW_ALL";
+export const initialState = SHOW_ALL;
+
+const visibilityFilter = (state, action) => {
+  if (!state) {
+    return initialState;
+  }
+
+  switch (action.type) {
+    case SET_VISIBILITY_FILTER:
+      return action.payload.filter;
+  }
+  return state;
 };
 
 export default visibilityFilter;
