@@ -1,13 +1,17 @@
 "use strict";
+import { combineReducers } from "redux";
 
-import reducerTodos from "./todos";
-import reducerVisibilityFilter from "./visibility-filter";
+// Importação dos reducers
+import todos from "./todos";
+import visibilityFilter from "./visibility-filter";
 
-const rootReducer = (state = {}, action) => {
-  return {
-    todos: reducerTodos(state.todos, action),
-    visibilityFilter: reducerVisibilityFilter(state.visibilityFilter, action)
-  };
-};
-
-export default rootReducer;
+/**
+ * combineReducers
+ * about: Função do Redux que combina os vários reducers da aplicação
+ * return: Objeto contendo os reducers a serem configurados na store
+ *
+ */
+export default combineReducers({
+  todos,
+  visibilityFilter
+});
