@@ -35,7 +35,7 @@ const App = ({ todos, handleAddTodo, handleToggleTodo }) => (
 );
 
 const mapStateToProps = state => ({
-  todos: state
+  todos: state.todos
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -49,4 +49,7 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
