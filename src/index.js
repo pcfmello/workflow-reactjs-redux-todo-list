@@ -10,12 +10,6 @@ import reducer from "./redux-flow/reducers";
 
 const store = createStore(reducer);
 
-console.log("state:", store.getState());
-
-store.subscribe(() => {
-  console.log("state:", store.getState());
-});
-
 const renderApp = NextApp => {
   render(
     <AppContainer>
