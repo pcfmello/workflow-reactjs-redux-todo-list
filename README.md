@@ -7,6 +7,14 @@ Aplicação de exemplo de utilização do Redux.
 - **SRC**
   - **HTML**
     - template.html => _"Template da aplicação"._
+  - **COMPONENTS**
+    - **FILTER**
+      - filter-link.js => _Componente de apresentação da lista de filtros._
+      - index.js => _Componente de filtro dos todos._
+    - **FORM**
+      - index.js => _Componente de formulário dos todos._
+    - **TODOSLIST**
+      - index.js => _Componente de lista dos todos._
   - **REDUCERS**
     - **TODOS**
       - action-creators.js => _Funções que retornam o TYPE e o PAYLOAD de cada action do reducer a serem utilizadas pelo dispatch._
