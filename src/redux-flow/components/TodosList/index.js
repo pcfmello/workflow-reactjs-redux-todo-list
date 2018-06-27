@@ -1,23 +1,28 @@
 import React from "react";
 import { connect } from "react-redux";
 
+import { List, ListItem } from "material-ui/List";
+import Subheader from "material-ui/Subheader";
+import { ActionDeleteForever, ActionViewList } from "material-ui/svg-icons";
+
 import { toggleTodo } from "../../reducers/todos/action-creators";
 
 import * as filterActions from "../../reducers/visibility-filter/actions";
 
 const TodosList = ({ todos, activeFilter, handleToggleTodo }) => (
-  <ul>
+  <List>
+    <Subheader>Nested List Items</Subheader>
     {getVisibleTodos(todos, activeFilter).map(todo => (
-      <li
+      <ListItem
+        primaryText={todo.text}
         key={todo.id}
-        style={{ textDecoration: todo.completed ? "line-through" : "none" }}
         onClick={handleToggleTodo(todo.id)}
-      >
-        {todo.text}
-      </li>
+        leftIcon={todo.completed ? <ActionDeleteForever /> : <ActionViewList />}
+        style={{ textDecoration: todo.completed ? "line-through" : "none" }}
+      />
     ))}
     {!todos.length && <li>Não existem tarefas nessa lista</li>}
-  </ul>
+  </List>
 );
 
 const getVisibleTodos = (todos, activeFilter) => {

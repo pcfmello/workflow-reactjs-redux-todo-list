@@ -1,5 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
+
+import RaisedButton from "material-ui/RaisedButton";
+
 import * as actions from "../../reducers/visibility-filter/actions";
 import { setVisibilityFilter } from "../../reducers/visibility-filter/action-creators";
 import FilterLink from "./filter-link";
@@ -8,14 +11,21 @@ const Filter = ({ activeFilter, handleFilter }) => (
   <div>
     <h3>Mostrar</h3>
     {filterItems.map(filter => (
-      <FilterLink
+      <RaisedButton
         key={filter.action}
-        action={filter.action}
-        activeFilter={activeFilter}
+        label={filter.label}
+        primary={true}
+        disabled={filter.action === activeFilter}
         onClick={handleFilter(filter.action)}
-      >
-        {filter.label}
-      </FilterLink>
+      />
+      // <FilterLink
+      //   key={filter.action}
+      //   action={filter.action}
+      //   activeFilter={activeFilter}
+      //   onClick={handleFilter(filter.action)}
+      // >
+      //   {filter.label}
+      // </FilterLink>
     ))}
   </div>
 );

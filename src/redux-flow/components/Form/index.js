@@ -1,12 +1,21 @@
 import React from "react";
 import { connect } from "react-redux";
 
+import { TextField, FloatingActionButton } from "material-ui";
+import ContentAdd from "material-ui/svg-icons/content/add";
+
 import { addTodo } from "../../reducers/todos/action-creators";
 
 const Form = ({ handleAddTodo }) => (
   <form onSubmit={handleAddTodo}>
-    <input type="text" name="todo" />
-    <button type="submit">Adicionar</button>
+    <TextField
+      hintText="Nova tarefa"
+      name="todo"
+      floatingLabelText="Insira uma nova tarefa"
+    />
+    <FloatingActionButton mini type="submit">
+      <ContentAdd />
+    </FloatingActionButton>
   </form>
 );
 

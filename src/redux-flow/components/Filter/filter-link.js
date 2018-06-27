@@ -1,6 +1,7 @@
 "use strict";
 
 import React from "react";
+import RaisedButton from "material-ui/RaisedButton";
 
 // Componente que retorna um html dinâmico
 
