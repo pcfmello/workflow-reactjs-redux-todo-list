@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { TextField, FloatingActionButton } from "material-ui";
+import { TextField, RaisedButton } from "material-ui";
 import ContentAdd from "material-ui/svg-icons/content/add";
 
 import { addTodo } from "../../reducers/todos/action-creators";
@@ -12,10 +12,17 @@ const Form = ({ handleAddTodo }) => (
       hintText="Nova tarefa"
       name="todo"
       floatingLabelText="Insira uma nova tarefa"
+      fullWidth
     />
-    <FloatingActionButton mini type="submit">
-      <ContentAdd />
-    </FloatingActionButton>
+
+    <RaisedButton
+      type="submit"
+      label="ADICIONAR"
+      primary={true}
+      icon={<ContentAdd />}
+      fullWidth={true}
+      style={{ marginTop: 16 }}
+    />
   </form>
 );
 

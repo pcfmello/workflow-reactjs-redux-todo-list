@@ -8,8 +8,7 @@ import { setVisibilityFilter } from "../../reducers/visibility-filter/action-cre
 import FilterLink from "./filter-link";
 
 const Filter = ({ activeFilter, handleFilter }) => (
-  <div>
-    <h3>Mostrar</h3>
+  <div style={{ display: "flex", marginTop: 16 }}>
     {filterItems.map(filter => (
       <RaisedButton
         key={filter.action}
@@ -17,6 +16,7 @@ const Filter = ({ activeFilter, handleFilter }) => (
         primary={true}
         disabled={filter.action === activeFilter}
         onClick={handleFilter(filter.action)}
+        style={{ flex: "auto" }}
       />
       // <FilterLink
       //   key={filter.action}
